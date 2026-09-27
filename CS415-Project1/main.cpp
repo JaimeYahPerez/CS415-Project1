@@ -1,9 +1,9 @@
-#include <fstream>
 #include <iostream>
-#include <vector>
+#include "exponentiation.hpp"
 
 using namespace std;
 int main() {
+    generateTask2Data(2, 100);
 
-	return 0;
+    return 0;
 }
