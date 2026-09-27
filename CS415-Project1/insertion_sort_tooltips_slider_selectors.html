@@ -76,7 +76,7 @@
     <div id="legend" class="legend"></div>
     <div class="footer">
       X-axis can be log₂-scaled or linear (use the selector above). Tick marks follow powers of two from your data range.<br/>
-      Expected columns: <code>impl,N,elapsed_ms,ops_total</code>
+      Expected columns: <code>impl,N,ops_total</code>
     </div>
   </div>
 
@@ -185,7 +185,7 @@ worst_case,2048,640000,2096128`;
     reader.onload = () => {
       const text = reader.result.replace(/\r\n/g, '\n').trim();
       const rows = d3.csvParse(text);
-      rows.forEach(r => { r.N = +r.N; r.elapsed_ms = +r.elapsed_ms; r.ops_total = +r.ops_total; });
+      rows.forEach(r => { r.N = +r.N; r.ops_total = +r.ops_total; });
       allRows = rows;
       setupSlider(rows);
       render();
@@ -197,7 +197,7 @@ worst_case,2048,640000,2096128`;
     // Apply max-N slider (by exponent) and filter invalid rows
     const maxPowLimit = (maxExpInput && Number.isFinite(+maxExpInput.value)) ? +maxExpInput.value : Infinity;
     const maxNLimit = Number.isFinite(maxPowLimit) ? (2 ** maxPowLimit) : Infinity;
-    const yField = (yMetricSel && yMetricSel.value) ? yMetricSel.value : 'elapsed_ms';
+    const yField = (yMetricSel && yMetricSel.value) ? yMetricSel.value : 'ops_total';
     const rows = allRows.filter(r =>
       Number.isFinite(r.N) && r.N > 0 &&
       Number.isFinite(r[yField]) &&

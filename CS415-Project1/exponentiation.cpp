@@ -52,9 +52,7 @@ long divideAndConquer(int a, int n, int& ops) {
 void generateTask2Data(int a, int N) {
 	std::ofstream file("data/exponentiation.csv");
 
-	file << "n,decreaseByOne,"
-		"constantFactor,"
-		"divideAndConquer\n";
+	file << "impl,N,ops_total,a,result\n";
 
 	for (int n = 1; n <= N; n++){
 		int count1 = 0;
