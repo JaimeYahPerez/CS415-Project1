@@ -1,5 +1,6 @@
 #include "exponentiation.hpp"
 #include <fstream>
+#include <iostream>
 long decreaseByOne(int a, int n, int& ops) {
 	if (n <= 0) {
 		return 1;
@@ -50,7 +51,7 @@ long divideAndConquer(int a, int n, int& ops) {
 }
 
 void generateTask2Data(int a, int N) {
-	std::ofstream file("data/exponentiation.csv");
+	std::ofstream file("csv/exponentiation.csv");
 
 	file << "impl,N,ops_total,a,result\n";
 
@@ -85,4 +86,48 @@ void generateTask2Data(int a, int N) {
 	}
 
 	file.close();
+	std::cout << "Task 2 scatter plot data generated.\n";
+}
+
+void task2UserTest(){
+	long double a;
+	int n;
+
+	std::cout << "\nTask 2 - Exponentiation User Testing Mode\n";
+
+	std::cout << "Enter the value of a: ";
+	std::cin >> a;
+
+	std::cout << "Enter the value of n: ";
+	std::cin >> n;
+
+	if (n < 0)
+	{
+		std::cout << "Error: n must be greater than or equal to 0.\n";
+		return;
+	}
+
+	int count1 = 0;
+	int count2 = 0;
+	int count3 = 0;
+
+	long result1 = decreaseByOne(a, n, count1);
+
+	long result2 = decreaseByConstantFactor(a, n, count2);
+
+	long result3 =divideAndConquer(a, n, count3);
+
+	std::cout << "\nResults for " << a << "^" << n << ":\n\n";
+
+	std::cout << "Decrease-by-one:\n";
+	std::cout << "  Result = " << result1 << '\n';
+	std::cout << "  Multiplications = " << count1 << "\n\n";
+
+	std::cout << "Decrease-by-constant-factor:\n";
+	std::cout << "  Result = " << result2 << '\n';
+	std::cout << "  Multiplications = " << count2 << "\n\n";
+
+	std::cout << "Divide-and-Conquer:\n";
+	std::cout << "  Result = " << result3 << '\n';
+	std::cout << "  Multiplications = " << count3 << '\n';
 }

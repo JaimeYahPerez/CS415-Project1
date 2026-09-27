@@ -101,7 +101,7 @@ static void generateCaseCSV(const std::string& outputFilename, const std::string
     output << "impl,N,ops_total\n";
 
     for (int n = 100; n <= 10000; n += 100) {
-        std::string filename = "testSet/data" + std::to_string(n) + inputSuffix + ".txt";
+        std::string filename = "data/testSet/data" + std::to_string(n) + inputSuffix + ".txt";
 
         std::vector<int> original = loadDataFile(filename);
 
