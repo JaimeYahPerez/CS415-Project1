@@ -3,7 +3,10 @@
 #include "InsertionSort.hpp"
 using namespace std;
 int main() {
-    generateTask2Data(2, 100);
+    cout << "Testing Task 3 - Insertion Sort\n";
 
+    task3UserTest();
+
+    
     return 0;
 }

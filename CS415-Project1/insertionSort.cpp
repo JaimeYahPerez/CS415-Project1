@@ -67,7 +67,7 @@ void task3UserTest(){
         return;
     }
 
-    std::string filename = "smallSet/data" + std::to_string(n) + ".txt";
+    std::string filename = "data/smallSet/data" + std::to_string(n) + ".txt";
 
     std::vector<int> original = loadDataFile(filename);
 
@@ -119,11 +119,11 @@ static void generateCaseCSV(const std::string& outputFilename, const std::string
     }
 }
 void task3ScatterData(){
-    generateCaseCSV("data/Insertion_best.csv", "_sorted");
+    generateCaseCSV("csv/Insertion_best.csv", "_sorted");
 
-    generateCaseCSV("data/Insertion_average.csv", "");
+    generateCaseCSV("csv/Insertion_average.csv", "");
 
-    generateCaseCSV( "data/Insertion_worst.csv", "_rSorted");
+    generateCaseCSV( "csv/Insertion_worst.csv", "_rSorted");
 
     std::cout << "Task 3 scatter plot data generated.\n";
 }
