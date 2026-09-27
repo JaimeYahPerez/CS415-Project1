@@ -21,9 +21,15 @@
     <ClCompile Include="exponentiation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="insertionSort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="exponentiation.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InsertionSort.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

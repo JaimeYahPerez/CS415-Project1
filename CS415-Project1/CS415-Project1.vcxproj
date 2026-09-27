@@ -124,10 +124,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="exponentiation.cpp" />
+    <ClCompile Include="insertionSort.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="exponentiation.hpp" />
+    <ClInclude Include="InsertionSort.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="insertion_sort_tooltips_slider_selectors.html" />
