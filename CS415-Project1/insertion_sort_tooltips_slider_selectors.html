@@ -140,7 +140,7 @@ worst_case,2048,640000,2096128`;
     const Nmax = d3.max(clean, d => d.N);
     return {
       minPow: Math.ceil(Math.log2(Nmin)),
-      maxPow: Math.floor(Math.log2(Nmax))
+      maxPow: Math.ceil(Math.log2(Nmax))
     };
   }
 
@@ -232,8 +232,8 @@ worst_case,2048,640000,2096128`;
     // X: either log₂ scale (base 2) or linear, based on selector
     const Nmin = d3.min(rows, d => d.N);
     const Nmax = d3.max(rows, d => d.N);
-    const minPow = Math.ceil(Math.log2(Nmin));
-    const maxPow = Math.floor(Math.log2(Nmax));
+    const minPow = Math.floor(Math.log2(Nmin));
+    const maxPow = Math.ceil(Math.log2(Nmax));
     const xTicks = d3.range(minPow, maxPow + 1).map(k => 2 ** k);
 
     const xMode = (xScaleSel && xScaleSel.value) ? xScaleSel.value : 'log2';
