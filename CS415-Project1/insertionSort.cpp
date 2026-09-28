@@ -1,7 +1,7 @@
 #include "InsertionSort.hpp"
 
 
-void insertionSort(std::vector<int>& arr, long& comparisons){
+void insertionSort(vector<int>& arr, long& comparisons){
     int n = arr.size();
 
     for (int i = 1; i < n; i++){
@@ -25,16 +25,16 @@ void insertionSort(std::vector<int>& arr, long& comparisons){
     }
 }
 
-std::vector<int> loadDataFile(const std::string& filename){
-    std::ifstream file(filename);
+vector<int> loadDataFile(const string& filename){
+    ifstream file(filename);
 
     if (!file){
-        std::cerr << "Error: could not open " << filename << '\n';
+        cerr << "Error: could not open " << filename << '\n';
 
         return {};
     }
 
-    std::vector<int> data;
+    vector<int> data;
 
     int value;
 
@@ -45,55 +45,53 @@ std::vector<int> loadDataFile(const std::string& filename){
     return data;
 }
 
-void printData(const std::vector<int>& data){
+void printData(const vector<int>& data){
     for (int value : data){
-        std::cout << value << ' ';
+        cout << value << ' ';
     }
 
-    std::cout << '\n';
+    cout << '\n';
 }
 
 void task3UserTest(){
     int n;
 
-    std::cout << "\nInsertion Sort - User Testing Mode\n";
-    std::cout << "Enter list size "
+    cout << "\nInsertion Sort - User Testing Mode\n";
+    cout << "Enter list size "
         "(10 to 100 in increments of 10): ";
 
-    std::cin >> n;
+    cin >> n;
 
     if (n < 10 || n > 100 || n % 10 != 0){
-        std::cout << "Invalid list size.\n";
+        cout << "Invalid list size.\n";
         return;
     }
 
-    std::string filename = "data/smallSet/data" + std::to_string(n) + ".txt";
+    string filename = "data/smallSet/data" + to_string(n) + ".txt";
 
-    std::vector<int> original = loadDataFile(filename);
+    vector<int> original = loadDataFile(filename);
 
     if (original.empty()){
         return;
     }
 
-    std::vector<int> insertionData = original;
+    vector<int> insertionData = original;
 
     long insertionCount = 0;
 
-    insertionSort(
-        insertionData,
-        insertionCount);
+    insertionSort(insertionData, insertionCount);
 
-    std::cout << "\nInsertion Sort:\n";
+    cout << "\nInsertion Sort:\n";
     printData(insertionData);
-    std::cout << "Comparisons: " << insertionCount << '\n';
+    cout << "Comparisons: " << insertionCount << '\n';
 
 }
 
-static void generateCaseCSV(const std::string& outputFilename, const std::string& inputSuffix){
-    std::ofstream output(outputFilename);
+static void generateCaseCSV(const string& outputFilename, const string& inputSuffix){
+    ofstream output(outputFilename);
 
     if (!output){
-        std::cerr << "Could not create " << outputFilename << '\n';
+        cerr << "Could not create " << outputFilename << '\n';
 
         return;
     }
@@ -101,15 +99,15 @@ static void generateCaseCSV(const std::string& outputFilename, const std::string
     output << "impl,N,ops_total\n";
 
     for (int n = 100; n <= 10000; n += 100) {
-        std::string filename = "data/testSet/data" + std::to_string(n) + inputSuffix + ".txt";
+        string filename = "data/testSet/data" + to_string(n) + inputSuffix + ".txt";
 
-        std::vector<int> original = loadDataFile(filename);
+        vector<int> original = loadDataFile(filename);
 
         if (original.empty()) {
             continue;
         }
 
-        std::vector<int> insertionData = original;
+        vector<int> insertionData = original;
 
         long insertionCount = 0;
 
@@ -125,5 +123,5 @@ void task3ScatterData(){
 
     generateCaseCSV( "csv/Insertion_worst.csv", "_rSorted");
 
-    std::cout << "Task 3 scatter plot data generated.\n";
+    cout << "Task 3 scatter plot data generated.\n";
 }

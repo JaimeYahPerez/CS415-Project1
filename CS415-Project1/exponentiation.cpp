@@ -51,7 +51,7 @@ long divideAndConquer(int a, int n, int& ops) {
 }
 
 void generateTask2Data(int a, int N) {
-	std::ofstream file("csv/exponentiation.csv");
+	ofstream file("csv/exponentiation.csv");
 
 	file << "impl,N,ops_total,a,result\n";
 
@@ -66,44 +66,32 @@ void generateTask2Data(int a, int N) {
 
 		long result3 = divideAndConquer(a, n, count3);
 
-		file << "decrease_by_one,"
-			<< n << ","
-			<< count1 << ","
-			<< a << ","
-			<< result1 << '\n';
+		file << "decrease_by_one," << n << "," << count1 << "," << a << "," << result1 << '\n';
 
-		file << "decrease_by_constant_factor,"
-			<< n << ","
-			<< count2 << ","
-			<< a << ","
-			<< result2 << '\n';
+		file << "decrease_by_constant_factor," << n << "," << count2 << "," << a << "," << result2 << '\n';
 
-		file << "divide_and_conquer,"
-			<< n << ","
-			<< count3 << ","
-			<< a << ","
-			<< result3 << '\n';
+		file << "divide_and_conquer," << n << "," << count3 << "," << a << "," << result3 << '\n';
 	}
 
 	file.close();
-	std::cout << "Task 2 scatter plot data generated.\n";
+	cout << "Task 2 scatter plot data generated.\n";
 }
 
 void task2UserTest(){
 	long double a;
 	int n;
 
-	std::cout << "\nTask 2 - Exponentiation User Testing Mode\n";
+	cout << "\nTask 2 - Exponentiation User Testing Mode\n";
 
-	std::cout << "Enter the value of a: ";
-	std::cin >> a;
+	cout << "Enter the value of a: ";
+	cin >> a;
 
-	std::cout << "Enter the value of n: ";
-	std::cin >> n;
+	cout << "Enter the value of n: ";
+	cin >> n;
 
 	if (n < 0)
 	{
-		std::cout << "Error: n must be greater than or equal to 0.\n";
+		cout << "Error: n must be greater than or equal to 0.\n";
 		return;
 	}
 
@@ -117,17 +105,17 @@ void task2UserTest(){
 
 	long result3 =divideAndConquer(a, n, count3);
 
-	std::cout << "\nResults for " << a << "^" << n << ":\n\n";
+	cout << "\nResults for " << a << "^" << n << ":\n\n";
 
-	std::cout << "Decrease-by-one:\n";
-	std::cout << "  Result = " << result1 << '\n';
-	std::cout << "  Multiplications = " << count1 << "\n\n";
+	cout << "Decrease-by-one:\n";
+	cout << "  Result = " << result1 << '\n';
+	cout << "  Multiplications = " << count1 << "\n\n";
 
-	std::cout << "Decrease-by-constant-factor:\n";
-	std::cout << "  Result = " << result2 << '\n';
-	std::cout << "  Multiplications = " << count2 << "\n\n";
+	cout << "Decrease-by-constant-factor:\n";
+	cout << "  Result = " << result2 << '\n';
+	cout << "  Multiplications = " << count2 << "\n\n";
 
-	std::cout << "Divide-and-Conquer:\n";
-	std::cout << "  Result = " << result3 << '\n';
-	std::cout << "  Multiplications = " << count3 << '\n';
+	cout << "Divide-and-Conquer:\n";
+	cout << "  Result = " << result3 << '\n';
+	cout << "  Multiplications = " << count3 << '\n';
 }

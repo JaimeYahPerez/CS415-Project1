@@ -133,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="insertion_sort_tooltips_slider_selectors.html" />
+    <None Include="makefile" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
