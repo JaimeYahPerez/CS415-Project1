@@ -3,7 +3,8 @@ CXXFLAGS = -std=c++17 -O2
 
 TARGET = CS415-Project1
 
-SOURCES = fib_euclid.cpp \
+SOURCES = main.cpp \
+		  fib_euclid.cpp \
           exponentiation.cpp \
           insertionSort.cpp \
           selectionsort.cpp
