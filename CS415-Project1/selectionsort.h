@@ -7,6 +7,8 @@
 #include <fstream>
 #include <chrono>
 
+//#include <InsertionSort.hpp>
+
 using namespace std;
 
 
@@ -67,7 +69,48 @@ void printData(const vector<int>& data){
     cout << '\n';
 }
 
+// Meant for both Insertion and Selection Sort
+/*
+void task3AlgoSortingUT_() {
 
+    int n;
+
+    cout << "\nSelection Sort - User Testing Mode\n";
+    cout << "Enter list size "
+        "(10 to 100 in increments of 10): ";
+
+    cin >> n;
+
+    if (n < 10 || n > 100 || n % 10 != 0){
+        cout << "Invalid list size.\n";
+        return;
+    }
+
+    string filename = "data/smallSet/data" + to_string(n) + ".txt";
+
+    vector<int> original = loadDataFile(filename);
+
+    if (original.empty()){
+        return;
+    }
+
+    vector<int> selectionData = original;
+    long selectionCount = 0;
+    selectionSort(selectionData, selectionCount);
+
+    vector<int> insertionData = original;
+    long insertionCount = 0;
+    insertionSort(insertionData, insertionCount);
+
+    cout << "\nSelection Sort:\n";
+    printData(selectionData);
+    cout << "Comparisons: " << selectionCount << '\n';
+
+    cout << "\nInsertion Sort:\n";
+    printData(insertionData);
+    cout << "Comparisons: " << insertionCount << '\n';
+}
+*/
 void task3SelecSortUserTest(){
     int n;
 
@@ -115,7 +158,7 @@ static void generateCaseCSV(const string& outputFilename, const string& inputSuf
 
     output << "impl,N,ops_total\n";
 
-    /**/
+    // Selection Sort
     for (int n = 100; n <= 10000; n += 100) {
         string filename = "data/testSet/data" + to_string(n) + inputSuffix + ".txt";
 
@@ -133,13 +176,37 @@ static void generateCaseCSV(const string& outputFilename, const string& inputSuf
 
         output << "selection_sort," << n << "," << selectionCount << '\n';
     }
+
+    // Insertion Sort 
+    /*
+    for (int n = 100; n <= 10000; n += 100) {
+        string filename = "data/testSet/data" + to_string(n) + inputSuffix + ".txt";
+
+        vector<int> original = loadDataFile(filename);
+
+        if (original.empty()) {
+            continue;
+        }
+
+        vector<int> insertionData = original;
+
+        long insertionCount = 0;
+
+        insertionSort( insertionData, insertionCount);
+
+        output << "insertion_sort," << n << "," << insertionCount << '\n';
+    }*/
+
+    
+
+
 }
-void task3ScatterData(){
-    generateCaseCSV("csv/Selection_best.csv", "_sorted");
+void task3_ScatterData(){
+    generateCaseCSV("csv/Algorithm_best.csv", "_sorted");
 
-    generateCaseCSV("csv/Selection_average.csv", "");
+    generateCaseCSV("csv/Algorithm_average.csv", "");
 
-    generateCaseCSV( "csv/Selection_worst.csv", "_rSorted");
+    generateCaseCSV("csv/Algorithm_worst.csv", "_rSorted");
 
     cout << "Task 3 scatter plot data generated.\n";
 }
