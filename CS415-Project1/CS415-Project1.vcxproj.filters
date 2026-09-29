@@ -24,6 +24,12 @@
     <ClCompile Include="insertionSort.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="selectionsort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="fib_euclid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="exponentiation.hpp">
@@ -32,10 +38,18 @@
     <ClInclude Include="InsertionSort.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="selectionsort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fib_euclid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="insertion_sort_tooltips_slider_selectors.html">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="makefile" />
+    <None Include="README.md" />
   </ItemGroup>
 </Project>

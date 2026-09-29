@@ -78,7 +78,7 @@ void generateTask2Data(int a, int N) {
 }
 
 void task2UserTest(){
-	long double a;
+	long a;
 	int n;
 
 	cout << "\nTask 2 - Exponentiation User Testing Mode\n";

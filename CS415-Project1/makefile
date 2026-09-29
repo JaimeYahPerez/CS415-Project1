@@ -1,9 +1,12 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -02
+CXXFLAGS = -std=c++17 -O2
 
 TARGET = CS415-Project1
 
-SOURCES = main.cpp exponentiation.cpp InsertionSort.cpp
+SOURCES = fib_euclid.cpp \
+          exponentiation.cpp \
+          insertionSort.cpp \
+          selectionsort.cpp
 
 $(TARGET): $(SOURCES)
 	$(CXX) $(CXXFLAGS) $(SOURCES) -o $(TARGET)

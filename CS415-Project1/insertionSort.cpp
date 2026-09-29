@@ -1,5 +1,5 @@
 #include "InsertionSort.hpp"
-
+#include "selectionsort.h"
 
 void insertionSort(vector<int>& arr, long& comparisons){
     int n = arr.size();
@@ -87,16 +87,37 @@ void task3UserTest(){
 
 }
 
-static void generateCaseCSV(const string& outputFilename, const string& inputSuffix){
+static void generateCaseCSV(const string& outputFilename, const string& inputSuffix) {
     ofstream output(outputFilename);
 
-    if (!output){
+    if (!output) {
         cerr << "Could not create " << outputFilename << '\n';
 
         return;
     }
 
     output << "impl,N,ops_total\n";
+
+    // Selection Sort
+    for (int n = 100; n <= 10000; n += 100) {
+        string filename = "data/testSet/data" + to_string(n) + inputSuffix + ".txt";
+
+        vector<int> original = loadDataFile(filename);
+
+        if (original.empty()) {
+            continue;
+        }
+
+        vector<int> selectionData = original;
+
+        long selectionCount = 0;
+
+        selectionSort(selectionData, selectionCount);
+
+        output << "selection_sort," << n << "," << selectionCount << '\n';
+    }
+
+    // Insertion Sort 
 
     for (int n = 100; n <= 10000; n += 100) {
         string filename = "data/testSet/data" + to_string(n) + inputSuffix + ".txt";
@@ -111,10 +132,14 @@ static void generateCaseCSV(const string& outputFilename, const string& inputSuf
 
         long insertionCount = 0;
 
-        insertionSort( insertionData, insertionCount);
+        insertionSort(insertionData, insertionCount);
 
         output << "insertion_sort," << n << "," << insertionCount << '\n';
     }
+
+
+
+
 }
 void task3ScatterData(){
     generateCaseCSV("csv/Insertion_best.csv", "_sorted");
@@ -124,4 +149,43 @@ void task3ScatterData(){
     generateCaseCSV( "csv/Insertion_worst.csv", "_rSorted");
 
     cout << "Task 3 scatter plot data generated.\n";
+}
+void task3AlgoSortingUT() {
+
+    int n;
+
+    cout << "\nSelection Sort - User Testing Mode\n";
+    cout << "Enter list size "
+        "(10 to 100 in increments of 10): ";
+
+    cin >> n;
+
+    if (n < 10 || n > 100 || n % 10 != 0) {
+        cout << "Invalid list size.\n";
+        return;
+    }
+
+    string filename = "data/smallSet/data" + to_string(n) + ".txt";
+
+    vector<int> original = loadDataFile(filename);
+
+    if (original.empty()) {
+        return;
+    }
+
+    vector<int> selectionData = original;
+    long selectionCount = 0;
+    selectionSort(selectionData, selectionCount);
+
+    vector<int> insertionData = original;
+    long insertionCount = 0;
+    insertionSort(insertionData, insertionCount);
+
+    cout << "\nSelection Sort:\n";
+    printData(selectionData);
+    cout << "Comparisons: " << selectionCount << '\n';
+
+    cout << "\nInsertion Sort:\n";
+    printData(insertionData);
+    cout << "Comparisons: " << insertionCount << '\n';
 }

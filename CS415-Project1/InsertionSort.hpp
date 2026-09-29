@@ -14,4 +14,5 @@ void printData(const vector<int>& data);
 
 void task3UserTest();
 void task3ScatterData();
+void task3AlgoSortingUT();
 #endif

@@ -124,16 +124,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="exponentiation.cpp" />
+    <ClCompile Include="fib_euclid.cpp" />
     <ClCompile Include="InsertionSort.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="selectionsort.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="exponentiation.hpp" />
+    <ClInclude Include="fib_euclid.h" />
     <ClInclude Include="InsertionSort.hpp" />
+    <ClInclude Include="selectionsort.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="insertion_sort_tooltips_slider_selectors.html" />
     <None Include="makefile" />
+    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
