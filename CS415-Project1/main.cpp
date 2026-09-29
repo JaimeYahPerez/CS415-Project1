@@ -15,34 +15,27 @@ int main() {
 
 	while (loop) {
 		
-		cout << "0: Exit\n1: Fib\n2:Task 3 - Selection\n3: Task 3 - Scatter Selection\n";
+		cout << "0: Exit\n1: Fib\n2: Fib-Euclid Scatterplot Data\n3:Selection Sort\n4:SelectSort SP Data\n";
 		cin >> choice;
 
 		switch (choice) {
 			case 0:
-				loop = false;
-				break;
+			loop = false;
+			break;
 			case 1: 
-			//fibTest();
-			fibandeuclid();
+			task1user();
 			break;
-			case 2: 
-			task3UserTest();
+			case 2:
+			task1ScatterData();
 			break;
-			case 3:
+			case 3: 
+			task3SelecSortUserTest();
+			break;
+			case 4:
 			task3ScatterData();
 			break;
 
-			/*cout << "Enter a value for k: ";
-			for (int i = 0; i < 11; i++) {
-				auto result = Fib(i, c);
-				cout << "Result of Fib(" << i << ") = " << result << "\n";
-				cout << "total basic ops: " << c << "\n";
-			}
 			
-			case 2:
-			int e = Euclid (60, 24, c);
-			cout << "Result of Euclid: " << e << "\n";*/
 		}
 	}
 	

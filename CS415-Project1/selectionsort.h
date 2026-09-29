@@ -68,7 +68,7 @@ void printData(const vector<int>& data){
 }
 
 
-void task3UserTest(){
+void task3SelecSortUserTest(){
     int n;
 
     cout << "\nSelection Sort - User Testing Mode\n";
@@ -115,6 +115,7 @@ static void generateCaseCSV(const string& outputFilename, const string& inputSuf
 
     output << "impl,N,ops_total\n";
 
+    /**/
     for (int n = 100; n <= 10000; n += 100) {
         string filename = "data/testSet/data" + to_string(n) + inputSuffix + ".txt";
 
@@ -143,13 +144,6 @@ void task3ScatterData(){
     cout << "Task 3 scatter plot data generated.\n";
 }
 
-
-
-
-void s(int p) {
-    p = 2;
-    
-}
 
 
 #endif
