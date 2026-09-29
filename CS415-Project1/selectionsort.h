@@ -7,7 +7,6 @@
 #include <fstream>
 #include <chrono>
 
-//#include <InsertionSort.hpp>
 
 using namespace std;
 
@@ -147,7 +146,7 @@ void task3SelecSortUserTest(){
 
 }
 
-static void generateCaseCSV(const string& outputFilename, const string& inputSuffix){
+static void generateCaseCSV_(const string& outputFilename, const string& inputSuffix){
     ofstream output(outputFilename);
 
     if (!output){
@@ -201,6 +200,8 @@ static void generateCaseCSV(const string& outputFilename, const string& inputSuf
 
 
 }
+
+/*
 void task3_ScatterData(){
     generateCaseCSV("csv/Algorithm_best.csv", "_sorted");
 
@@ -210,7 +211,7 @@ void task3_ScatterData(){
 
     cout << "Task 3 scatter plot data generated.\n";
 }
-
+*/
 
 
 #endif

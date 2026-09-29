@@ -51,12 +51,12 @@ int main() {
 			break;
 
 			case 5:
-			//task3UserTest();
+			
 			task3AlgoSortingUT();
 			break;
 
 			case 6:
-			//task3_ScatterData();
+			task3ScatterData();
 			break;
 
 
